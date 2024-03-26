@@ -2,6 +2,10 @@
     "path": "~/Concordia/Exchange/NUS/NM2207/Clone/valeriaxcc.github.io",
     "sortOrder": [
         {
+            "columnIndex": 1,
+            "ascending": true
+        },
+        {
             "columnIndex": 2,
             "ascending": true
         }

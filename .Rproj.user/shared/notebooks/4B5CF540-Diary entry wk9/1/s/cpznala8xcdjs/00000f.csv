@@ -1,0 +1,7 @@
+"0","library(tidyverse)"
+"0",""
+"0","olympic_results <- read.csv(""olympic_results.csv"")"
+"0",""
+"0","fs_results <- olympic_results %>%"
+"0","  filter(discipline_title == ""Figure skating"" &"
+"0","         grepl(""women|ladies"", event_title, ignore.case = TRUE))"

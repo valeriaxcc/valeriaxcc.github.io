@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: valeriaxcc.github.io
+  output-dir: docs
 
 website:
   title: "Final project"

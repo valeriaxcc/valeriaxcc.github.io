@@ -1,24 +1,26 @@
 {
-    "id": "FB896C3F",
+    "id": "C39A070F",
     "path": "~/Concordia/Exchange/NUS/NM2207/Clone/valeriaxcc.github.io/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "0",
+    "hash": "1955698734",
     "contents": "",
     "dirty": false,
-    "created": 1710524213722.0,
+    "created": 1711449661140.0,
     "source_on_save": false,
-    "relative_order": 2,
+    "relative_order": 3,
     "properties": {
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "cursorPosition": "2,18",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1710523767,
+    "lastKnownWriteTime": 1711449674,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1710523767,
+    "last_content_update": 1711449674975,
     "read_only": false,
     "read_only_alternatives": []
 }
