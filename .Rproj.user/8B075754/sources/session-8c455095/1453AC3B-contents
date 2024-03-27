@@ -22,7 +22,7 @@ fs_results <- olympic_results %>%
 print(fs_results)
 ```
 
-**Shiny embded**
+**Shiny embed**
 
 ```{=html}
 <iframe height="400" width="100%" frameborder="no" src="https://valeriaxcc.shinyapps.io/sample_app/"> </iframe>
