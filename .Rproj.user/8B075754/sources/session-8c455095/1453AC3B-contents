@@ -12,8 +12,17 @@ I will be utilizing a comprehensive dataset encompassing the outcomes of various
 
 ```{r, eval=TRUE, echo=TRUE}
 library(tidyverse)
+
 olympic_results <- read.csv("olympic_results.csv")
-fs_results <- olympic_results[olympic_results$discipline_title == "Figure skating",
-                              ]
+
+fs_results <- olympic_results %>%
+  filter(discipline_title == "Figure skating" &
+         grepl("women's|ladies", event_title, ignore.case = TRUE))
+
 print(fs_results)
 ```
+
+**Shiny embded**
+
+```{=html}
+<iframe height="400" width="100%" frameborder="no" src="https://valeriaxcc.shinyapps.io/sample_app/"> </iframe>
