@@ -3,7 +3,7 @@
     "path": "~/Concordia/Exchange/NUS/NM2207/Clone/valeriaxcc.github.io/index.qmd",
     "project_path": "index.qmd",
     "type": "quarto_markdown",
-    "hash": "4118053957",
+    "hash": "468697268",
     "contents": "",
     "dirty": false,
     "created": 1711448253580.0,
@@ -17,15 +17,15 @@
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "2:0",
-        "cursorPosition": "24,13",
-        "scrollLine": "7"
+        "cursorPosition": "29,0",
+        "scrollLine": "8"
     },
     "folds": "",
-    "lastKnownWriteTime": 1711516425,
+    "lastKnownWriteTime": 1711516794,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1711516425121,
+    "last_content_update": 1711516794780,
     "read_only": false,
     "read_only_alternatives": []
 }
