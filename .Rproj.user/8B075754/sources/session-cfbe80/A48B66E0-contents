@@ -1,0 +1,42 @@
+---
+title: "Diary entry Wk10"
+author: "Valeria Campo"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+```
+
+UPDATE: I decided to consider the World Championships scores as well, as these are yearly and it will allow me to have more data to analyze and answer the question posed. For consistency purposes, I will only be looking at the results from 2006 onward as that's is when the figure skating scoring system changed significantly.
+
+Although the focus will lie on women's single skating, I will be using men's scores as a comparaison as I find it is also pertinent to understand the way the technical scores have evolved in both disciplines with the popularization of quadruple jumps.
+
+## List the visualizations that you are going to use in your project (What are the variables that you are going to plot? How will it answer your larger question? Why are these the best visualizations to convey your story?)
+
+I plan to use shiny to get visualization to be interactive and easier to filter through. It will allow me to create different tabs for the two types of scores (technical and performance), as well as create tables within the visualization model for a more comprehensive view. 
+
+I will also be using ggplot to create plot graphs, more specifically scatterplots. This allow me to visualize the scores and see if there is a certain tendency towards an increase in technical scores compared to performance scores. It will allow me to correlate the increase of quadruple jumps in performances and the resulting scores.
+
+The variables that I will be plotting are mostly going to be technical scores and performance scores. I will also look how many quadruple jumps there are in the programs. This is allow me to answer my question regarding the increase of these jumps and the increase technical scores.
+
+
+```{r cars}
+```
+
+##  How do you plan to make it interactive? (What features of ggplot2/shiny/markdown do you plan to use to make the story interactive)
+
+To make it interactive I plan on creating a slider with shiny for one of my visualizations so that the user can filter on which championships they want to focus on.
+I also want to create an interactive game in which the user clicks on a jump and they'll be able to see the details concerning it, like how many revolutions, a short description on what its and its base value within the scoring system.
+
+## What concepts incorporated in your project were taught in the course and which ones were self-learnt? (Create a table with topics in one column and Weeks in the other to indicate which concept taught in which week is being used. Leave the entry of the Week column empty for self-learnt concepts)
+
+
+```{r, echo=FALSE, eval=TRUE}
+topics <- c("Inserting pictures", "Displaying rows of a database", "Vectors", "Tidy data", "ggplots", "Interactive game")
+weeks <- c(1, 2, 3, 4, 7, "")
+learning_concepts <- data.frame(Topics = topics, Weeks = weeks)
+print(learning_concepts)
+```
