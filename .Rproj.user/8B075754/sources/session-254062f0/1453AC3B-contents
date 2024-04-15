@@ -1,0 +1,201 @@
+---
+title: "Final project - Figure skating and Quads"
+---
+
+# Introduction
+
+As a figure skater, I have always been interested in the competitive scene. I have followed and attended many competitions over the years which allowed me to notice a shift in sport with the prominence of quadruple jumps in single skating. Quadruple jumps have become a standard in men's figure skating and even have made it into the women's discipline which was unprecedented before.
+
+This data story serves as means to analyzing the impact of program difficulty on the scores on the women's and men's discipline, most specifically seeing how the prominence of quadruple jumps has affected the scoring system.
+
+```{r, out.height= "675px",out.width= "1200px",echo=FALSE,eval=TRUE}
+knitr::include_graphics("wfs.jpg")
+```
+
+## About Figure Skating
+
+Figure skating is a sport in which individuals, pairs or groups perform a variety of elements on figure skates on ice. It was the first winter sport to be added to Olympics in 1908.
+
+It comprises of four disciplines. Pairs skating, single skating, ice dance and synchronous skating. For the sake of this data story, we will be focusing on single skating. Single skating is comprised of the men's and women's discipline.
+
+A figure skating program has specific components that needs to be comprised. A certain amount of jumps, spins and other technical elements determine the quality and difficulty of a program. There are also two programs in competitive figure skating: short program and free skate. These two have two different lengths one being 2 mins 40 seconds while the free skate is 4 minutes.
+
+## Guess the number of rotations!
+
+Do you know how many rotations are in each figure skating jump? Let's test it out!
+
+<iframe height="400" width="100%" frameborder="no" src="https://valeriaxcc.shinyapps.io/sample_app/">
+
+</iframe>
+
+## About the jumps
+
+There are 6 different jumps in figure skating: Loop, Flip, Salchow, Lutz, Toe Loop and Axel. Each can go up to four rotations. The only exception being the Axel, since in comparaison to the previously mentioned jumps takes off from a forward entrance rather than backwards, hence it adds half a rotation to the jump.
+
+The quadruple Axel, up until last year, was deemed an almost impossible jump to achieve due to the amount of rotations making it very difficult to perform. The first quadruple Axel to be landed in competition was by Ilia Malinin from the United States in 2022.
+
+For women, quadruple jumps are very hard to perform due to their physical build. It was also deemed almost impossible for a woman to land a quad. In comparison to the men's discipline, quads are not expected in a competitive program or so they weren't until the quad revolution took off.
+
+At the 2022 Beijing Olympic Games, Russian skater Alexandra Trusova made history in women's figure skating by performing an unprecedented five quadruple jumps in her program, setting a new standard for technical excellence in the discipline.
+
+This event sparked conversations about the impact of quadruple jumps on technical scores, highlighting how jumps have become more crucial than performance elements. Fans believe that this "quad revolution" prioritizes jumps over the overall quality of skating, potentially affecting performance scores.
+
+## Scoring system
+
+The figure skating scoring system is divided into two categories: technical and performance. The technical score evaluates the technical elements of a program such as jumps and spins. While the performance score, looks at the quality of the transitions on the ice and interpretation of the music. Each score is determined based on the base value plus grade fo execution of an element. Different jumps and spins have different base values, for instance a triple Lutz + Triple Toe Loop combination has a value of 10.1 points. This jump combinations is considered one of the hardest in the women's discipline. While a quadruple Lutz has a base value of 13.6 points. The difference in values explains why some skaters prioritze quads over other jumps.
+
+These two scores are then added together to create a total score for the program.
+
+```{r, out.height= "720px",out.width= "1280px",echo=FALSE,eval=TRUE, fig.cap="This is an example of a scoring sheet"}
+knitr::include_graphics("scores example.jpg")
+```
+
+## Data set
+
+The following data set comprises the details and results for the past five Winter Olympics in the Women's figure skating discipline starting from 2006. The choice of year is for consistency, as in 2006 the International Skating Union (ISU) introduced a new scoring system. With this data set I aim to visualize the general curve of scores in the women's discipline and see if there's been a big jump since harder jumps have become the norm.
+
+***Olympic Results - Women's Figure Skating***
+
+Now let's take a look at the average Olympic scores over the years.
+
+```{r, eval=TRUE, echo=FALSE}
+
+
+library(dplyr)
+library(ggplot2)
+
+
+olympic_results <- read.csv("olympic_results_women.csv")
+
+fs_results <- olympic_results %>%
+  filter(discipline_title == "Figure skating" &
+         grepl("women", event_title, ignore.case = TRUE)) %>%
+  select(year, value_unit)
+
+average_fs_scores <- fs_results %>%
+  group_by(year) %>%
+  summarise(avg_fs_score = mean(value_unit, na.rm = TRUE))
+
+ggplot(average_fs_scores, aes(x = year, y = avg_fs_score)) +
+  geom_line(color = "blue", size = 1) +
+  labs(
+    x = "Year/Event",
+    y = "Average Free Skate Score",
+    title = "Average Free Skate Scores at the Olympics Over Time"
+  ) +
+  theme_minimal()
+
+```
+
+**World's Championship's Scores**
+
+The following database contains the results of the top 10 skaters at the World figure skating championships of the past 10 years in the women's discipline. The focus being on the last 10 years is to analyze if there has been a noticeable difference between among technical and performance scores since the introduction of higher value elements such as quads.
+
+```{r, eval=TRUE, echo=FALSE}
+library(tidyverse)
+library(knitr)
+
+worlds_results <- read.csv("FS World scores women.csv")
+
+kable(worlds_results)
+```
+
+Now let's look a the general curve of the scores over the last ten years.
+
+*\*Must be noted that the 2020 World championships were cancelled due to the pandemic.*
+
+```{r, eval=TRUE, echo=FALSE}
+
+library(dplyr)
+
+worlds_results <- read.csv("FS World scores women.csv")
+
+mean_scores_by_year <- worlds_results %>%
+  group_by(Year) %>%
+  summarise(
+    mean_sp_tes = mean(SP_TES, na.rm = TRUE),
+    mean_sp_tes = mean(FS_TES, na.rm = TRUE)
+  )
+
+mean_pcs_by_year <- worlds_results %>%
+  group_by(Year) %>%
+  summarise (
+    mean_fs_pcs = mean(FS_PCS, na.rm = TRUE),
+    mean_sp_pcs = mean(SP_PCS, na.rm = TRUE)
+  )
+
+library(ggplot2)
+
+mean_scores_by_year <- worlds_results %>%
+  group_by(Year) %>%
+  summarise(
+    mean_sp_tes = mean(SP_TES, na.rm = TRUE),
+    mean_fs_tes = mean(FS_TES, na.rm = TRUE),
+    mean_sp_pcs = mean(SP_PCS, na.rm = TRUE),
+    mean_fs_pcs = mean(FS_PCS, na.rm = TRUE)
+  )
+
+mean_scores_long <- mean_scores_by_year %>%
+  pivot_longer(cols = starts_with("mean_"),
+               names_to = "score_type",
+               values_to = "mean_score")
+
+ggplot(mean_scores_long, aes(x = Year, y = mean_score, color = score_type)) +
+  geom_line(size = 1) +
+  geom_point(size = 3) +
+  labs(x = "Year",
+       y = "Mean Score",
+       title = "Mean Scores Over Years") +
+  scale_color_manual(values = c("mean_sp_tes" = "blue", "mean_fs_tes" = "green",
+                                 "mean_sp_pcs" = "red", "mean_fs_pcs" = "orange"),
+                     labels = c("Mean SP TES", "Mean FS TES", "Mean SP PCS", "Mean FS PCS")) +
+  theme_minimal()
+
+```
+
+In this line plot, we can notice that the technical scores fluctuate more than the performance scores do. As can be noted there was a spike in technical score between 2017 to 2020. This can be attributed to Russian skaters dominating the podium during those years, more specifically Evgenia Medvedeva, who was known for her triple-triple-triple jump combination. After that, there was a drop in the scores and it has been declining ever since. 
+
+It is interesting to note that although quadruple jumps have been in the rise among the women's discipline, the technical scores have not seen a higher attribution. For instance in 2022 while the quad revolution was at its peak, the technical and performance scores remained at about the same average.
+
+It must be noted that Russian athletes have been banned from competing at international competitions due to sanctions related to doping and war conflicts. Hence why, quadruple jumps after the 2022 Olympics are not as common among women.
+
+### Relationship between Technical and Performance score
+
+From what we've seen, the scores remain fairly consistent and whenever there is a huge spike, there are many factors that influence it. Now let's visualize the correlation between performance and technical scores in order to identify skaters that excel on both elements and take into consideration how the difficulty of their programs impacted their scores.
+
+
+```{r, eval=TRUE, echo=FALSE}
+library(dplyr)
+library(ggplot2)
+
+worlds_results <- read.csv("FS World scores women.csv")
+
+mean_pcs_scores <- worlds_results %>%
+  group_by(Skater_Lastname) %>%
+  summarise(
+    mean_pcs_FS = mean(FS_PCS, na.rm = TRUE), 
+    mean_pcs_SP = mean(SP_PCS, na.rm = TRUE)
+  )
+
+mean_tes_scores <- worlds_results %>%
+  group_by(Skater_Lastname) %>%
+  summarise(
+    mean_tes_FS = mean(FS_TES, na.rm = TRUE),
+    mean_tes_SP = mean(SP_TES, na.rm = TRUE)
+  )
+
+mean_scores <- merge(mean_pcs_scores, mean_tes_scores, by = "Skater_Lastname")
+
+ggplot(mean_scores, aes(x = mean_tes_FS, y = mean_pcs_FS, label = Skater_Lastname)) +
+  geom_point(size = 3, color = "blue", alpha = 0.5) +
+  geom_text(size = 3, hjust = -0.2, vjust = 0.5) +
+  labs(x = "Mean Technical Score (TES) - Free Skate",
+       y = "Mean Performance Score (PCS) - Free Skate",
+       title = "Correlation Between Technical and Performance Scores (Free Skate)") +
+  theme_minimal()
+```
+
+
+
+
+

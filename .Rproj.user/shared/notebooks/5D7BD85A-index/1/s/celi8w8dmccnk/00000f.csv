@@ -1,0 +1,25 @@
+"0",""
+"0","library(dplyr)"
+"0","library(ggplot2)"
+"0",""
+"0","olympic_results <- read.csv(""olympic_results.csv"")"
+"0",""
+"0","average_fs_scores <- fs_results %>%"
+"0","  group_by(slug_game) %>%"
+"0","  summarise(avg_fs_score = mean(value_unit, na.rm = TRUE))"
+"2","Warning: [38;5;232mThere were 26 warnings in `summarise()`.
+The first warning was:[39m
+[38;5;232m[36mℹ[38;5;232m In argument: `avg_fs_score = mean(value_unit, na.rm = TRUE)`.
+[36mℹ[38;5;232m In group 1: `slug_game = ""albertville-1992""`.[39m
+Caused by warning in `mean.default()`:
+[33m![39m argument is not numeric or logical: returning NA
+[38;5;232m[36mℹ[38;5;232m Run ]8;;ide:run:dplyr::last_dplyr_warnings()dplyr::last_dplyr_warnings()]8;; to see the 25 remaining warnings.[39m"
+"0","ggplot(average_fs_scores, aes(x = slug_game, y = avg_fs_score)) +"
+"0","  geom_line(color = ""blue"", size = 1) +"
+"0","  labs("
+"0","    x = ""Year"","
+"0","    y = ""Average Free Skate Score"","
+"0","    title = ""Average Free Skate Scores at the Olympics Over Time"""
+"0","  ) +"
+"0","  theme_minimal()"
+"0",""
