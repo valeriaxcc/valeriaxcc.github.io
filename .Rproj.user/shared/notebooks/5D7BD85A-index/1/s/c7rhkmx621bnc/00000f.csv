@@ -1,0 +1,42 @@
+"0","library(dplyr)"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(ggplot2)"
+"0",""
+"0","worlds_results <- read.csv(""FS World scores women.csv"")"
+"0",""
+"0","mean_pcs_scores <- worlds_results %>%"
+"0","  group_by(Skater_Lastname) %>%"
+"0","  summarise("
+"0","    mean_pcs_FS = mean(FS_PCS, na.rm = TRUE), "
+"0","    mean_pcs_SP = mean(SP_PCS, na.rm = TRUE)"
+"0","  )"
+"0",""
+"0","mean_tes_scores <- worlds_results %>%"
+"0","  group_by(Skater_Lastname) %>%"
+"0","  summarise("
+"0","    mean_tes_FS = mean(FS_TES, na.rm = TRUE),"
+"0","    mean_tes_SP = mean(SP_TES, na.rm = TRUE)"
+"0","  )"
+"0",""
+"0","mean_scores <- merge(mean_pcs_scores, mean_tes_scores, by = ""Skater_Lastname"")"
+"0",""
+"0","ggplot(mean_scores, aes(x = mean_tes_FS, y = mean_pcs_FS, label = Skater_Lastname)) +"
+"0","  geom_point(size = 3, color = ""blue"", alpha = 0.5) +"
+"0","  geom_text(size = 3, hjust = -0.2, vjust = 0.5) +"
+"0","  labs(x = ""Mean Technical Score (TES) - Free Skate"","
+"0","       y = ""Mean Performance Score (PCS) - Free Skate"","
+"0","       title = ""Correlation Between Technical and Performance Scores (Free Skate)"") +"
+"0","  theme_minimal()"

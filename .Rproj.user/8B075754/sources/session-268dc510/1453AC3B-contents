@@ -194,11 +194,11 @@ ggplot(mean_scores, aes(x = mean_tes_FS, y = mean_pcs_FS, label = Skater_Lastnam
        title = "Correlation Between Technical and Performance Scores (Free Skate)") +
   theme_minimal()
 ```
-
+As can be seen in this graph, most skaters tend to have consistent difference between their performance scores and their technical scores. Skaters such as Trusova have a huge gap with a high technical score but lower performance score. It must be noted she's among the few female skaters that can perform quadruple jumps. In her case, it can be assumed that posing a higher focus on jumps does have a negative effect on the performance components.
 
 ## Conclusion
 
-There hasn't been a notable difference among the technical scores of figure skaters. It remains pretty consistent and since the ban of Russian competitive skaters from international competitions, the gap has become less big among the women's discipline.
-
+There hasn't been a notable difference among the technical scores of figure skaters. It remains pretty consistent and since the ban of Russian competitive skaters from international competitions, the gap has become less big among the women's discipline. 
+ 
 
 
