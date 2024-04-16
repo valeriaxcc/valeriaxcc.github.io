@@ -4,9 +4,9 @@ title: "Final project - Figure skating and Quads"
 
 # Introduction
 
-As a figure skater, I have always been interested in the competitive scene. I have followed and attended many competitions over the years which allowed me to notice a shift in sport with the prominence of quadruple jumps in single skating. Quadruple jumps have become a standard in men's figure skating and even have made it into the women's discipline which was unprecedented before.
+There has been a shift in the sport of figure skating with the prominence of quadruple jumps in single skating. Quadruple jumps have become a standard in men's figure skating and even have made it into the women's discipline which was unprecedented before.
 
-This data story serves as means to analyzing the impact of program difficulty on the scores on the women's and men's discipline, most specifically seeing how the prominence of quadruple jumps has affected the scoring system.
+This data story serves as means to analyzing the impact of program difficulty on the scores on the women's discipline, most specifically seeing how the prominence of quadruple jumps has affected the scoring system.
 
 ```{r, out.height= "675px",out.width= "1200px",echo=FALSE,eval=TRUE}
 knitr::include_graphics("wfs.jpg")
