@@ -1,0 +1,25 @@
+---
+title: "Week 12- Entry"
+author: "Valeria Campo"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reflect on your experience doing the project using R
+
+My experience while doing this project was full of challenges. I find R to be an interesting yet a little difficult to understand language so it took me while to get the hang of it. However, I thoroughly enjoyed the process of organizing and visualizing diverse datasets, which taught me valuable lessons about the significance of clean, structured data for effective visualization. As well as being aware of the choice of variables when creating plots.
+
+As I delved deeper into my project, I faced difficulties in developing visualizations that not only contributed to the narrative of the data but also led to coherent conclusions. I went through a lot of back and forth between my dataset, and even in the end just created my own from online sources due to the need for a more specific breakdown. Ultimately, it was through trial and error that I successfully completed my project and gained proficiency in various new techniques and approaches.
+
+## What have you learned in NM2207, and how can that be helpful in your future career?
+
+I have learned how to use R to visualize and organize data in a efficient way. I believe this can be helpful in my future career whenever I pursue any sort of research. If I were to pursue a masters degree or PhD that would require me to do data analysis and visualization, the knowledge I've acquired in this class would be helpful. Since I'm a communications major, this would be useful when analyzing media coverage, social media data, categorizing documents etc. Outside of research, I wouldn't find myself using R as much, since my focus lies more on writing and creating content for media and other communications mediums. Nonetheless, I acknowledge that the information I've learned through this course will be beneficial in more ways that one. Working with a lot of data is something that is quite common in this field, so being able to know how to use a coding language such as R is always a good asset to have.
+
+
+
